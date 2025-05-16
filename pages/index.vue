@@ -49,7 +49,7 @@ const verify_line = async (uid) => {
     );
     return res;
   } catch (error) {
-    // alert(error);
+    // // alert(error);
     return null;
   }
 };
@@ -63,7 +63,7 @@ const allergy = async (uid) => {
     // );
     return res;
   } catch (error) {
-    alert(error);
+    // alert(error);
     return null;
   }
 };
