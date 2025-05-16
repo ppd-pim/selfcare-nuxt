@@ -50,14 +50,14 @@ const homemedical = async (uid) => {
 
 onMounted(async () => {
   if (users.value && users.value.hn) {
-    console.log(users.value.hn);
+    // console.log(users.value.hn);
     const homemedicalByHN = await homemedical(users.value.hn);
     if (homemedicalByHN?.status === "success") {
       homemedicals.value = homemedicalByHN.data;
     }
-    console.log(homemedicals.value);
+    // console.log(homemedicals.value);
   } else {
-    console.log("users ยังไม่มีข้อมูล");
+    // console.log("users ยังไม่มีข้อมูล");
   }
 });
 </script>

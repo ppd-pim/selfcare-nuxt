@@ -87,12 +87,12 @@ onMounted(async () => {
   // โหลดใหม่เฉพาะตอน lineUid เปลี่ยน หรือไม่มีข้อมูล
   if (!users.value || loadedLineUid.value !== currentLineUid) {
     loading.value = true; // ✅ เริ่ม loading ถ้าจะโหลดใหม่
-    console.log('verify_line',currentLineUid)
+    // console.log('verify_line',currentLineUid)
     const verifyData = await verify_line(currentLineUid);
 
     if (verifyData?.status === "success") {
       users.value = verifyData.data;
-      console.log('allergy',users.value.hn)
+      // console.log('allergy',users.value.hn)
       const allergybyhnData = await allergy(users.value.hn);
       if (allergybyhnData?.status === "success") {
         allergys.value = allergybyhnData.data;

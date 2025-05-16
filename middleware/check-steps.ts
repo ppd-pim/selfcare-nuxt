@@ -2,7 +2,7 @@ export default defineNuxtRouteMiddleware((to) => {
   const verify = useCookie('verify')
   const phoneVerify = useCookie('phoneVerify')
 
-  // console.log('middleware:', {
+  // // console.log('middleware:', {
   //   verify: verify.value,
   //   phoneVerify: phoneVerify.value,
   //   to: to.path

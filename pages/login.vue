@@ -127,7 +127,7 @@ const SetBDDATE = useState('bd_date');
 const SetLineUID = useState('LineUID')
 
 const verify_line = async (uid) => {
-  console.log("verify_line");
+  // console.log("verify_line");
   try {
     const res = await $fetch(
       `https://webappqshc.kku.ac.th/PharConnect/api/LineUsers/Verify/${uid}`

@@ -99,13 +99,13 @@ const sendOtp = async () => {
       },
     });
 
-    // console.log("OTP Response:", res);
-    // console.log("OTP Response:", res.result.ref_code);
+    // // console.log("OTP Response:", res);
+    // // console.log("OTP Response:", res.result.ref_code);
     // router.push("/verify-otp");
 
     useCookie('phoneVerify').value = true
-    console.log("res.result.toke")
-    console.log(res.result.token)
+    // console.log("res.result.toke")
+    // console.log(res.result.token)
      otpToken.value =res.result.token;
      otpRef.value = res.result.ref_code;
      SetPhone.value = phone.value;

@@ -55,15 +55,15 @@
  
  onMounted(async () => {
    if (users.value && users.value.hn) {
-     console.log(users.value.hn);
+     // console.log(users.value.hn);
      const appointmentByHN = await appointment(users.value.hn);
        if (appointmentByHN?.status === "success") {
          appointments.value = appointmentByHN.data;
        }
-     console.log(appointments.value);
+     // console.log(appointments.value);
  
    } else {
-     console.log("users ยังไม่มีข้อมูล");
+     // console.log("users ยังไม่มีข้อมูล");
    }
  });
  

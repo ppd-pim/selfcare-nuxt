@@ -86,13 +86,13 @@ const otpRef = useRoute().query.ref_code  // ได้ ref_code จาก query
 const router = useRouter();
 const profile = useState('profile');
 
-console.log(profile.value.data.fullName);
-console.log(" otp.value ",otp.value);
-  console.log(" MobilePhone ",MobilePhone.value);
+// console.log(profile.value.data.fullName);
+// console.log(" otp.value ",otp.value);
+  // console.log(" MobilePhone ",MobilePhone.value);
   
-  console.log("token_otp");
-  console.log(token_otp.value);
-  console.log(" LineUID ",LineUID.value);
+  // console.log("token_otp");
+  // console.log(token_otp.value);
+  // console.log(" LineUID ",LineUID.value);
 
   const formatBirthDate = (dateStr) => {
   if (!dateStr || dateStr.length !== 8) return "";
@@ -103,14 +103,14 @@ console.log(" otp.value ",otp.value);
 };
 
 const formattedBirthDate = formatBirthDate(bd_date.value);
-console.log(" formattedBirthDate ",formattedBirthDate);
+// console.log(" formattedBirthDate ",formattedBirthDate);
 
 const registerUser = async (event) => {
   
 
     event.preventDefault();
-    console.log("token_otp");
-    console.log(token_otp.value);
+    // console.log("token_otp");
+    // console.log(token_otp.value);
     
 
     const config = useRuntimeConfig();
@@ -139,7 +139,7 @@ const registerUser = async (event) => {
     });
 
 
-    console.log(result); // result = JSON แล้ว ไม่ต้อง .json()
+    // console.log(result); // result = JSON แล้ว ไม่ต้อง .json()
 
   if (result.code && result.code == "5000") {
     // setMsgerror("รหัส OPT นี้หมดอายุเเล้ว");
@@ -148,7 +148,7 @@ const registerUser = async (event) => {
       errorMessage.value = 'รหัส OPT นี้หมดอายุเเล้ว';
   } 
   if (result.code && result.code == "1006") {
-   console.log("Not found token.")
+   // console.log("Not found token.")
    router.push('/verify-phone');
   }else if (result.result) {
     if (result.result.status == true && LineUID.value != undefined) {
@@ -163,7 +163,7 @@ const registerUser = async (event) => {
         },
       });
 
-      console.log(res2)
+      // console.log(res2)
       const result2 = await res2;
       if (result2.status === "success") {
         // setBtnLoad(false);
@@ -188,13 +188,13 @@ const registerUser = async (event) => {
         // setwarningOTP(true);
       }
     } else if (result.result.status == false && result.code == "000")  {
-      console.log("รหัส OPT ไม่ถูกต้อง");
+      // console.log("รหัส OPT ไม่ถูกต้อง");
       // setMsgerror("รหัส OPT ไม่ถูกต้อง");
       // setwarningOTP(true);
       isInvalid.value = true;
       errorMessage.value = 'รหัส OTP ไม่ถูกต้อง';
     } else {
-      console.log("เกิดข้อผิดพลาด");
+      // console.log("เกิดข้อผิดพลาด");
       // setMsgerror("เกิดข้อผิดพลาด");
       // setwarningOTP(true);
       errorMessage.value = 'เกิดข้อผิดพลาด';
