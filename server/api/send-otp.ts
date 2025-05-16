@@ -1,7 +1,7 @@
 // ✅ อยู่ใน server/api/send-otp.ts
 export default defineEventHandler(async (event) => {
     const body = await readBody(event)
-  
+  console.log("process.env.NUXT_PUBLIC_OTP_API_KEY",process.env.NUXT_PUBLIC_OTP_API_KEY);
     const response = await $fetch('https://portal-otp.smsmkt.com/api/otp-send', {
       method: 'POST',
       headers: {
