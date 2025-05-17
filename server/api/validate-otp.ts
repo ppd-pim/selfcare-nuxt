@@ -5,8 +5,8 @@ export default defineEventHandler(async (event) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'api_key': process.env.NUXT_PUBLIC_OTP_API_KEY!,     // ✅ OK ที่นี่
-        'secret_key': process.env.NUXT_PUBLIC_OTP_SECRET_KEY!,
+        'api_key': process.env.OTP_API_KEY!,     // ✅ OK ที่นี่
+        'secret_key': process.env.OTP_SECRET_KEY!,
       },
       body: {
         token: body.token,

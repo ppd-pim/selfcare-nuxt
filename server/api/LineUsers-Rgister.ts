@@ -2,7 +2,7 @@
 export default defineEventHandler(async (event) => {
     const body = await readBody(event)
 
-    const response = await $fetch(process.env.NUXT_PUBLIC_PUBLIC_API_URL + "/PharConnect/api/LineUsers/Register", {
+    const response = await $fetch(process.env.PUBLIC_API_URL + "/PharConnect/api/LineUsers/Register", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

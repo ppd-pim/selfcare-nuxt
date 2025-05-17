@@ -23,18 +23,18 @@ export default defineNuxtConfig({
   // ✅ เพิ่มตรงนี้
   runtimeConfig: {
     public: {
-      OTP_API_KEY: process.env.NUXT_PUBLIC_OTP_API_KEY,
-      OTP_SECRET_KEY: process.env.NUXT_PUBLIC_OTP_SECRET_KEY,
-      OTP_PROJECT_KEY: process.env.NUXT_PUBLIC_OTP_PROJECT_KEY,
-      USERNAMELINE: process.env.NUXT_PUBLIC_USERNAMELINE,
-      PASSWORDLINE: process.env.NUXT_PUBLIC_PASSWORDLINE,
-      PUBLIC_API_URL: process.env.NUXT_PUBLIC_PUBLIC_API_URL,
+      OTP_API_KEY: process.env.OTP_API_KEY,
+      OTP_SECRET_KEY: process.env.OTP_SECRET_KEY,
+      OTP_PROJECT_KEY: process.env.OTP_PROJECT_KEY,
+      USERNAMELINE: process.env.USERNAMELINE,
+      PASSWORDLINE: process.env.PASSWORDLINE,
+      PUBLIC_API_URL: process.env.PUBLIC_API_URL,
     }
   },
   vite: {
     server: {
       allowedHosts: [
-        '4757-202-28-119-61.ngrok-free.app' // ใส่ host ของ ngrok ที่คุณได้มา
+        '4406-202-12-97-153.ngrok-free.app' // ใส่ host ของ ngrok ที่คุณได้มา
       ]
     }
   }

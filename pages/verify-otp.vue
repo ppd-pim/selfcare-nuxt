@@ -122,8 +122,8 @@ const registerUser = async (event) => {
     //   }),
     //   headers: {
     //     "Content-Type": "application/json",
-    //     api_key: config.public.NUXT_PUBLIC_OTP_API_KEY,
-    //     secret_key: config.public.NUXT_PUBLIC_OTP_SECRET_KEY,
+    //     api_key: config.public.OTP_API_KEY,
+    //     secret_key: config.public.OTP_SECRET_KEY,
     //   },
     //   method: "POST",
     // });
