@@ -22,13 +22,16 @@ export default defineNuxtConfig({
 
   // ✅ เพิ่มตรงนี้
   runtimeConfig: {
+    // ✅ ตัวแปรลับ (ใช้ได้เฉพาะฝั่ง server เท่านั้น)
+    otpApiKey: process.env.OTP_API_KEY,
+    otpSecretKey: process.env.OTP_SECRET_KEY,
+    otpProjectKey: process.env.OTP_PROJECT_KEY,
+    usernameLine: process.env.USERNAMELINE,
+    passwordLine: process.env.PASSWORDLINE,
+
+    // ✅ ตัวแปร public สำหรับ client ใช้งาน เช่น base URL
     public: {
-      OTP_API_KEY: process.env.OTP_API_KEY,
-      OTP_SECRET_KEY: process.env.OTP_SECRET_KEY,
-      OTP_PROJECT_KEY: process.env.OTP_PROJECT_KEY,
-      USERNAMELINE: process.env.USERNAMELINE,
-      PASSWORDLINE: process.env.PASSWORDLINE,
-      PUBLIC_API_URL: process.env.PUBLIC_API_URL,
+      publicApiUrl: process.env.PUBLIC_API_URL
     }
   },
   vite: {
