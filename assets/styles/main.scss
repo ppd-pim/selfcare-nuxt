@@ -164,7 +164,12 @@ body{
     display: flex;          /* เพิ่ม flex ให้สามารถจัดการลูกได้ */
     flex-direction: column; /* ถ้าต้องการให้เนื้อหาเรียงแนวตั้ง */
   }
-  
+  @media (min-width: 1025px) {
+    .content {
+      margin-top: 5%;
+    }
+  }
+
   .footer {
     background: #f5f5f5;
     padding: 1rem;
