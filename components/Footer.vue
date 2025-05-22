@@ -16,7 +16,7 @@
           alt="icon"
           class="nav-icon"
         />
-        <label class="label-icon">{{ item.label }}</label>
+        <label class="label-icon mb-0">{{ item.label }}</label>
       </div>
     </div>
   </nav>
@@ -29,20 +29,20 @@ defineProps({
 
 const navItems = [
   {
-    icon: "/icon/drugs.png",
-    iconActive: "/icon/drugs-active.png",
+    icon: "/icon/drugs128.png",
+    iconActive: "/icon/drugs_active128.png",
     label: "ยากลับบ้าน",
     component: "MedicineComponent",
   },
   {
-    icon: "/icon/home.png",
-    iconActive: "/icon/home-active.png",
+    icon: "/icon/home128.png",
+    iconActive: "/icon/home_active128.png",
     label: "หน้าหลัก",
     component: "HomeComponent",
   },
   {
-    icon: "/icon/calendar.png",
-    iconActive: "/icon/calendar-active.png",
+    icon: "/icon/calendar128.png",
+    iconActive: "/icon/calendar_active128.png",
     label: "วันนัด",
     component: "AppointmentComponent",
   },

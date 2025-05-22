@@ -3,7 +3,7 @@
   <div>
     <div class="navbar justify-content-center">
       <NuxtLink to="/"> 
-        <img src="../assets/styles//img/logo/QSHClogo_hostpitalnew_01.png"  class="logo"/>
+        <img src="../assets/styles//img/logo/QSHClogo_hostpitalnew_nologo.png"  class="logo"/>
 
       </NuxtLink>
     </div>

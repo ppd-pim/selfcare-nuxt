@@ -1,5 +1,5 @@
 body{
-  background-color: #0e588c36 !important;
+  background-color: #ffffff !important;
 }
 .tets {
   color: pink;
@@ -147,13 +147,19 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url("@/assets/styles/img/bg/bg6.png");
+    background-image: url("@/assets/styles/img/bg/5.png");
     background-size: cover;
     background-position: center;
   }
+
+  @media (min-width: 1025px) {
+      .default-layout {
+      background-image: url("@/assets/styles/img/bg/desktop-bg6.png");
+    }
+  }
   
   .content {
-    margin-top: 5%;
+    margin-top: 10%;
     flex: 1;
     display: flex;          /* เพิ่ม flex ให้สามารถจัดการลูกได้ */
     flex-direction: column; /* ถ้าต้องการให้เนื้อหาเรียงแนวตั้ง */
@@ -181,20 +187,19 @@ body{
     left:0;
     right:0;
     z-index:1000;
-    border: 1px solid #41729f !important;
+    // border: 1px solid #41729f !important;
     //give nav it's own compsite layer
     will-change:transform;
     transform: translateZ(0);
     
     display:flex;	
     
-    height:50px;
+    height:65px;
     
-    box-shadow: 0 -2px 5px -2px #33333354;
-    background-color:#fff;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    background-color:#ebf4ff;
+    border-radius: 25px;
+    margin: 12px 10px 12px 10px;
     &__item{
       flex-grow:1;
       text-align:center;
@@ -217,6 +222,8 @@ body{
   .mobile-bottom-nav__item {
     padding: 10px;
     cursor: pointer;
+    width: 33.33%;
+    
   }
  
   .mobile-bottom-nav__item--active {
@@ -227,7 +234,7 @@ body{
   .mobile-bottom-nav {
     display: flex;
     justify-content: space-around;
-    background: #ffffff;
+    // background: #ffffff;
     padding: 20px 0;
   }
   
@@ -237,7 +244,7 @@ body{
   }
   
   .mobile-bottom-nav__item--active {
-    color: #1976d2;
+    color: #305c8c;
     font-weight: bold;
 
     .label-icon{
@@ -248,7 +255,7 @@ body{
   }
 
   .logo{
-    width: 80%;
+    width: 50%;
   }
 
 
@@ -261,12 +268,12 @@ body{
   }
 
   .label-icon{
-    color: #333;
+    color: #acacac;
   }
 
   .banner-top-logo{
-    margin-top: 5%;
-    width: 30%;
+    margin-top: 10%;
+    width: 40%;
     text-align: center;
     background-color: #ffffff;
     border-top-right-radius: 50px;
@@ -276,7 +283,7 @@ body{
 
   @media (max-width: 1024px) {
     .banner-top-logo{
-      width: 50%;
+      width: 70%;
     }
     .logo{
       width: 80%;
@@ -291,7 +298,8 @@ body{
     padding: 5%;
     border-radius: 20px !important;
     border: 1px solid !important;
-    border-color: #41729F !important;
+    background-color: #F8F8F8 !important;
+    border-color: transparent !important;
   }
 
   .box-title {
@@ -305,6 +313,13 @@ h3{
 }
 
 .text-title {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
+}
+
+
+g{
+  text{
+    font: 14px monospace;
+  }
 }

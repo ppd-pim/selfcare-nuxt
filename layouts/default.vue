@@ -4,7 +4,7 @@
     <div class="banner-top-logo text-center">
       <NuxtLink to="/">
         <img
-          src="../assets/styles//img/logo/QSHClogo_hostpitalnew_01.png"
+          src="../assets/styles//img/logo/QSHClogo_hostpitalnew_nologo.png"
           class="logo mt-2 mb-2"
         />
       </NuxtLink>

@@ -1,7 +1,7 @@
 <template>
     <div v-if="appointments && appointments.length">
      <div class="card mt-4">
-       <div className="d-flex mb-3">
+       <div className="d-flex mb-2">
          <div className="box-title"></div>
          <div className="text-title">รายการนัดหมาย</div>
        </div>
@@ -20,7 +20,7 @@
    </div>
    <div v-else>
      <div class="card">
-        <div className="d-flex mb-3">
+        <div className="d-flex mb-2">
          <div className="box-title"></div>
          <div className="text-title">รายการนัดหมาย</div>
        </div>

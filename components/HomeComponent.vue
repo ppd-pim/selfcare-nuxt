@@ -1,7 +1,7 @@
 <template>
   <div v-if="users">
     <div class="card">
-      <div className="d-flex mb-3">
+      <div className="d-flex mb-2">
         <div className="box-title"></div>
         <div className="text-title">ข้อมูลผู้ป่วย</div>
       </div>
@@ -30,6 +30,9 @@
           <div>เบอร์โทรศัพท์ :</div>
           <div>{{ users.mobile }}</div>
         </div>
+        <div class="mr-auto ml-auto mt-1" >
+          <Barcode :value="users.hn" />
+        </div>
       </div>
     </div>
   </div>
@@ -41,7 +44,7 @@
 
   <div v-if="allergys && allergys.length">
     <div class="card mt-4">
-      <div className="d-flex mb-3">
+      <div className="d-flex mb-2">
         <div className="box-title"></div>
         <div className="text-title">ประวัติแพ้ยา</div>
       </div>
@@ -73,6 +76,7 @@
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import Loading from "~/components/Loading.vue";
+import Barcode from '~/components/Barcode.vue'
 
 const users = useState("users", () => null);
 const loadedLineUid = useState("loadedLineUid", () => null);
