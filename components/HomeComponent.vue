@@ -7,27 +7,27 @@
       </div>
       <div class="row">
         <div class="d-flex col-12 col-xl-6">
-          <div>HN :</div>
+          <div>HN : &nbsp; </div>
           <div>{{ users.hn }}</div>
         </div>
         <div class="d-flex col-12 col-xl-6">
-          <div>ชื่อ สกุล :</div>
+          <div>ชื่อ สกุล : &nbsp; </div>
           <div>{{ users.fullname }}</div>
         </div>
         <div class="d-flex col-12 col-xl-6">
-          <div>หมายเลขประจำตัวประชาชน :</div>
+          <div>หมายเลขประจำตัวประชาชน : &nbsp; </div>
           <div>{{ users.idCardNo }}</div>
         </div>
         <div class="d-flex col-12 col-xl-6">
-          <div>อายุ :</div>
-          <div>{{ users.age }}</div>
+          <div>อายุ : &nbsp; </div>
+          <div>{{ users.age }}  ปี </div>
         </div>
         <div class="d-flex col-12 col-xl-6">
-          <div>เพศ :</div>
+          <div>เพศ : &nbsp; </div>
           <div>{{ users.gender }}</div>
         </div>
         <div class="d-flex col-12 col-xl-6">
-          <div>เบอร์โทรศัพท์ :</div>
+          <div>เบอร์โทรศัพท์ : &nbsp; </div>
           <div>{{ users.mobile }}</div>
         </div>
         <div class="mr-auto ml-auto mt-1" >
