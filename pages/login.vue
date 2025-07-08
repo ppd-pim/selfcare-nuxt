@@ -49,7 +49,7 @@
                     @click="dialog = true"
                   ></v-text-field>
 
-                  <v-dialog v-model="dialog" width="290" persistent>
+                  <v-dialog v-model="dialog" max-width="350" persistent>
                     <v-card>
                       <v-date-picker
                         v-model="birthdate"
@@ -222,8 +222,11 @@ const handleSubmit = async () => {
 
 onMounted(async () => {
   const liff = (await import("@line/liff")).default;
+  const liffId = import.meta.env.VITE_LIFFID
   // ✅ สำคัญ! ต้อง init ก่อน
-  await liff.init({ liffId: "1661279233-dDV4VVlZ" });
+  // await liff.init({ liffId: "1661279233-dDV4VVlZ" });
+  await liff.init({ liffId });
+
   await liff.ready;
   if (!liff.isLoggedIn()) {
     liff.login({ redirectUri: window.location.href }); // 👉 เด้งไปหน้า login LINE ถ้ายังไม่ได้ login

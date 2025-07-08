@@ -32,15 +32,16 @@ import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 const users = useState("users", () => null);
 const homemedicals = useState("homemedicals", () => []);
+const webapi = import.meta.env.VITE_WEB_API
 
 const homemedical = async (uid) => {
   try {
+    // const res = await $fetch(
+    //   `${webapi}/homemedical/${uid}`
+    // );
     const res = await $fetch(
       `https://webappqshc.kku.ac.th/PharConnect/api/LineUsers/homemedical/${uid}`
     );
-    // const res = await $fetch(
-    //   `https://webappqshc.kku.ac.th/PharConnect/api/LineUsers/homemedical/64004451`
-    // );
     return res;
   } catch (error) {
     // alert(error);

@@ -41,12 +41,15 @@ const componentMap = {
 };
 
 const currentComponentResolved = computed(() => componentMap[currentComponent.value]);
+const webapi = import.meta.env.VITE_WEB_API
 
 const verify_line = async (uid) => {
   try {
     const res = await $fetch(
       `https://webappqshc.kku.ac.th/PharConnect/api/LineUsers/Verify/${uid}`
     );
+    // console.log("rrrrrr")
+    // console.log(res)
     return res;
   } catch (error) {
     // // alert(error);
@@ -55,12 +58,12 @@ const verify_line = async (uid) => {
 };
 const allergy = async (uid) => {
   try {
+    // const res = await $fetch(
+    //   `${webapi}/Allergy/${uid}`
+    // );
     const res = await $fetch(
       `https://webappqshc.kku.ac.th/PharConnect/api/LineUsers/allergybyhn/${uid}`
     );
-    // const res = await $fetch(
-    //   `https://webappqshc.kku.ac.th/PharConnect/api/LineUsers/allergybyhn/68002378`
-    // );
     return res;
   } catch (error) {
     // alert(error);
@@ -70,7 +73,9 @@ const allergy = async (uid) => {
 
 onMounted(async () => {
   const liff = (await import("@line/liff")).default;
-  await liff.init({ liffId: "1661279233-dDV4VVlZ" });
+  // await liff.init({ liffId: "1661279233-dDV4VVlZ" });
+  const liffId = import.meta.env.VITE_LIFFID
+  await liff.init({ liffId });
   await liff.ready;
 
   if (!liff.isLoggedIn()) {
@@ -79,6 +84,7 @@ onMounted(async () => {
   }
 
   const lineProfile = await liff.getProfile();
+  // console.log(lineProfile)
   const currentLineUid = lineProfile.userId;
 
   profile.value = lineProfile;
@@ -89,16 +95,18 @@ onMounted(async () => {
     loading.value = true; // ✅ เริ่ม loading ถ้าจะโหลดใหม่
     // console.log('verify_line',currentLineUid)
     const verifyData = await verify_line(currentLineUid);
-
+    // console.log('verify_line',verifyData)
     if (verifyData?.status === "success") {
       users.value = verifyData.data;
-      // console.log('allergy',users.value.hn)
+      // // console.log('allergy',users.value.hn)
       const allergybyhnData = await allergy(users.value.hn);
       if (allergybyhnData?.status === "success") {
         allergys.value = allergybyhnData.data;
       }
       loadedLineUid.value = currentLineUid;
     } else {
+      //alert("whyyyyyy")
+      // console.log('why')
       router.push("/login");
       return;
     }

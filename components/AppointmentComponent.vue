@@ -35,16 +35,16 @@
  import { useRouter } from "vue-router";
  const users = useState("users", () => null);
  const appointments = useState("appointments", () => []);
- 
+ const webapi = import.meta.env.VITE_WEB_API
  
  const appointment = async (uid) => {
    try {
+    // const res = await $fetch(
+    //   `${webapi}/appointment/${uid}`
+    // );
      const res = await $fetch(
        `https://webappqshc.kku.ac.th/PharConnect/api/LineUsers/appointment/${uid}`
      );
-    //  const res = await $fetch(
-    //    `https://webappqshc.kku.ac.th/PharConnect/api/LineUsers/appointment/64004451`
-    //  );
      return res;
    } catch (error) {
      // alert(error);

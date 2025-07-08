@@ -15,7 +15,7 @@
           <div>{{ users.fullname }}</div>
         </div>
         <div class="d-flex col-12 col-xl-6">
-          <div>หมายเลขประจำตัวประชาชน : &nbsp; </div>
+          <div>เลขประจำตัวประชาชน : &nbsp; </div>
           <div>{{ users.idCardNo }}</div>
         </div>
         <div class="d-flex col-12 col-xl-6">

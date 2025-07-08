@@ -38,7 +38,7 @@
               <form class="cta-form cta-form-2" @submit.prevent="handleSubmit">
                 
                 <v-otp-input v-model="otp"></v-otp-input>
-                <NuxtLink @click="registerUser" >ยืนยัน</NuxtLink>
+                <NuxtLink @click="registerUser" class="btn btn-primary">ยืนยัน</NuxtLink>
               </form>
             </div>
           </div>

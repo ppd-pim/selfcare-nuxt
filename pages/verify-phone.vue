@@ -52,7 +52,7 @@
                   </button>
                 </div>
               </div>
-              <NuxtLink to="/verify-otp">ถัดไป</NuxtLink>
+              <!-- <NuxtLink to="/verify-otp">ถัดไป</NuxtLink> -->
             </div>
           </div>
 

@@ -37,7 +37,7 @@ export default defineNuxtConfig({
   vite: {
     server: {
       allowedHosts: [
-        '6625-202-12-97-152.ngrok-free.app' // ใส่ host ของ ngrok ที่คุณได้มา
+        '73d2e71a16b0.ngrok-free.app' // ใส่ host ของ ngrok ที่คุณได้มา
       ]
     }
   }
