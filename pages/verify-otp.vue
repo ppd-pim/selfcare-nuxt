@@ -176,7 +176,7 @@ const registerUser = async (event) => {
           // setModalOpensuccess(!modalSuccess);
           // setTimeout(() => setModalOpensuccess(modalSuccess), 3000);
           const liff = (await import("@line/liff")).default;
-          liff.closeWindow();
+          // liff.closeWindow();
           useCookie('verify').value = null;
           useCookie('phoneVerify').value = null;     
           router.push('/');

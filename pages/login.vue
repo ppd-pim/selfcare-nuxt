@@ -1,10 +1,15 @@
 <template>
   <div class="login">
-    <section id="home" class="slider-area slider-height-2 position-relative login-area">
+    <section
+      id="home"
+      class="slider-area slider-height-2 position-relative login-area"
+    >
       <div class="container">
         <div class="row">
           <div class="col-xl-5 col-lg-5">
-            <div class="slider-text slider-text-2 slider-content-space-2 news-latter-area">
+            <div
+              class="slider-text slider-text-2 slider-content-space-2 news-latter-area"
+            >
               <div class="pt-3">
                 <div class="stepper-wrapper">
                   <div class="stepper-item active">
@@ -23,9 +28,15 @@
               </div>
 
               <div class="m-3 tx-header-login">ยืนยันตัวตน</div>
-              <form class="cta-form cta-form-2" @submit.prevent="openAgreementDialog">
+              <form
+                class="cta-form cta-form-2"
+                @submit.prevent="openAgreementDialog"
+              >
                 <div class="ml-4 mr-4 text-start form-login">
-                  <div v-if="isInvalid" class="invalid-feedback d-block alert-danger text-start p-1 mb-2">
+                  <div
+                    v-if="isInvalid"
+                    class="invalid-feedback d-block alert-danger text-start p-1 mb-2"
+                  >
                     กรุณาตรวจสอบข้อมูลผู้ป่วยอีกครั้ง
                   </div>
                   <label>หมายเลขประจำตัวประชาชนผู้ป่วย</label>
@@ -33,7 +44,11 @@
                     type="text"
                     inputmode="numeric"
                     maxlength="13"
-                    :class="['form-control', 'mb-1', isInvalid ? 'is-invalid' : '']"
+                    :class="[
+                      'form-control',
+                      'mb-1',
+                      isInvalid ? 'is-invalid' : '',
+                    ]"
                     placeholder="หมายเลขประจำตัวประชาชน13หลัก ไม่ต้องใส่ขีด"
                     :value="citizenId"
                     @input="handleInput"
@@ -64,7 +79,18 @@
                   </v-dialog>
                 </div>
 
-                <button type="submit" class="btn btn-primary">ถัดไป</button>
+                <!-- <button type="submit" class="btn btn-primary">ถัดไป</button> -->
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  :disabled="isSubmitting"
+                >
+                  <span v-if="isSubmitting">
+                    <span class="spinner-border spinner-border-sm me-2"></span>
+                    กำลังดำเนินการ...
+                  </span>
+                  <span v-else>ถัดไป</span>
+                </button>
               </form>
 
               <!-- MODAL: Agreement -->
@@ -73,6 +99,7 @@
                   <v-card-title class="text-h6">ยืนยันข้อตกลง</v-card-title>
                   <v-card-text>
                     <p>โปรดอ่านและยอมรับข้อตกลงในการใช้งานก่อนดำเนินการต่อ</p>
+                    <PdfViewer source="/Pdf/PDPA_MDKKU.pdf" />
                     <v-checkbox
                       v-model="agreementAccepted"
                       label="ฉันยอมรับข้อตกลงและเงื่อนไข"
@@ -80,20 +107,30 @@
                   </v-card-text>
                   <v-card-actions>
                     <v-spacer />
-                    <v-btn text @click="agreementDialog = false">ยกเลิก</v-btn>
-                    <v-btn color="primary" :disabled="!agreementAccepted" @click="submitWithAgreement">
+                    <v-btn text @click="agreementDialog = false; isSubmitting = false">ยกเลิก</v-btn>
+                    <v-btn
+                      color="primary"
+                      :disabled="!agreementAccepted"
+                      @click="submitWithAgreement"
+                    >
                       ดำเนินการต่อ
                     </v-btn>
                   </v-card-actions>
                 </v-card>
               </v-dialog>
-
             </div>
           </div>
 
-          <div class="col-xl-4 offset-xl-1 col-lg-7 offset-lg-1 d-none d-lg-block">
+          <div
+            class="col-xl-4 offset-xl-1 col-lg-7 offset-lg-1 d-none d-lg-block"
+          >
             <div class="slider-img-2 position-relative">
-              <img class="wow fadeInUp" data-wow-delay=".6s" src="/assets/styles/img/slider/slider2.png" alt="" />
+              <img
+                class="wow fadeInUp"
+                data-wow-delay=".6s"
+                src="/assets/styles/img/slider/slider2.png"
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -104,15 +141,15 @@
 
 <script setup>
 import { ref } from "vue";
-import axios from 'axios';
-import Loading from '~/components/Loading.vue';
+import axios from "axios";
+import PdfViewer from "~/components/PdfViewer.vue"
+import Loading from "~/components/Loading.vue";
 definePageMeta({
   layout: "blank",
   middleware: ["check-steps"],
 });
 
-
-const loading = ref(true)
+const loading = ref(true);
 const citizenId = ref("");
 const isInvalid = ref(false);
 const dialog = ref(false);
@@ -122,9 +159,10 @@ const agreementDialog = ref(false);
 const agreementAccepted = ref(false);
 const users = ref(false);
 const router = useRouter();
-const profile = useState('profile', () => ({}));
-const SetBDDATE = useState('bd_date');
-const SetLineUID = useState('LineUID')
+const profile = useState("profile", () => ({}));
+const SetBDDATE = useState("bd_date");
+const SetLineUID = useState("LineUID");
+const isSubmitting = ref(false);
 
 const verify_line = async (uid) => {
   // console.log("verify_line");
@@ -138,7 +176,6 @@ const verify_line = async (uid) => {
     return null;
   }
 };
-
 
 function handleInput(e) {
   citizenId.value = e.target.value.replace(/\D/g, "");
@@ -159,10 +196,17 @@ function formatDate2(val) {
 // เปิด Modal ข้อตกลง
 function openAgreementDialog() {
   isInvalid.value = false;
+
   if (!citizenId.value || !birthdate.value) {
     isInvalid.value = true;
+    isSubmitting.value = false;
+    agreementAccepted.value = false;
     return;
   }
+
+  if (isSubmitting.value) return; // ป้องกันการกดซ้ำ
+  isSubmitting.value = true;
+
   agreementDialog.value = true;
 }
 
@@ -174,10 +218,10 @@ function submitWithAgreement() {
 
 // ฟังก์ชันแปลง birthdate
 function formatDate(val) {
-  if (!val) return '';
+  if (!val) return "";
   const date = new Date(val);
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
   const year = (date.getFullYear() + 543).toString();
   return day + month + year;
 }
@@ -186,45 +230,49 @@ function formatDate(val) {
 const handleSubmit = async () => {
   isInvalid.value = false;
   try {
-    const loginResponse = await axios.post('/api/login', {
+    const loginResponse = await axios.post("/api/login", {
       username: "LineApp",
       password: "LineApp@qshc2023",
     });
 
     const token = loginResponse.data.token;
-    const formattedBirthdate = formatDate(birthdate.value); 
+    const formattedBirthdate = formatDate(birthdate.value);
 
-    const verifyResponse = await axios.post('/api/verify', {
-      idCardNo: citizenId.value,
-      birthDate: formattedBirthdate,
-    }, {
-      headers: {
-        Authorization: `Bearer ${token}`,
+    const verifyResponse = await axios.post(
+      "/api/verify",
+      {
+        idCardNo: citizenId.value,
+        birthDate: formattedBirthdate,
       },
-    });
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     if (verifyResponse.data.status == "fail") {
       isInvalid.value = true;
-      useCookie('verify').value = false;
+      isSubmitting.value = false;
+      agreementAccepted.value = false;
+      useCookie("verify").value = false;
     } else if (verifyResponse.data.status == "success") {
       SetBDDATE.value = formattedBirthdate;
-      useCookie('verify').value = true;
+      useCookie("verify").value = true;
       profile.value = verifyResponse.data;
-      router.push('/verify-phone');
+      router.push("/verify-phone");
     }
-
   } catch (err) {
-    console.error('❌ Error verifying:', err);
+    console.error("❌ Error verifying:", err);
     isInvalid.value = true;
   }
 };
 
-
 onMounted(async () => {
   const liff = (await import("@line/liff")).default;
-  const liffId = import.meta.env.VITE_LIFFID
-  // ✅ สำคัญ! ต้อง init ก่อน
-  // await liff.init({ liffId: "1661279233-dDV4VVlZ" });
+  const liffId = import.meta.env.VITE_LIFFID;
+  console.log("Login page");
+
   await liff.init({ liffId });
 
   await liff.ready;
@@ -236,13 +284,11 @@ onMounted(async () => {
   const lineProfile = await liff.getProfile();
   profile.value = lineProfile;
   const verifyData = await verify_line(lineProfile.userId);
-  SetLineUID.value = lineProfile.userId
+  SetLineUID.value = lineProfile.userId;
   if (verifyData?.status === "success") {
-    loading.value = false
+    loading.value = false;
     users.value = verifyData.data;
     router.push("/");
   }
 });
-
 </script>
-

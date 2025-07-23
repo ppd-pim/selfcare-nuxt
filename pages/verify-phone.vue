@@ -43,13 +43,19 @@
                   placeholder="กรอกเบอร์มือถือ"
                 />
                 <div class="input-group-append">
+                  
                   <button
-                    class="btn btn-outline-secondary"
-                    type="button"
+                  type="button"
                     @click="sendOtp"
-                  >
-                    ส่งรหัส
-                  </button>
+                  class="btn btn-outline-primary"
+                  :disabled="isSubmitting"
+                >
+                  <span v-if="isSubmitting">
+                    <span class="spinner-border spinner-border-sm me-2"></span>
+                    กำลังดำเนินการ...
+                  </span>
+                  <span v-else>ส่งรหัส</span>
+                </button>
                 </div>
               </div>
               <!-- <NuxtLink to="/verify-otp">ถัดไป</NuxtLink> -->

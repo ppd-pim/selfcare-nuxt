@@ -1,4 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: false },
@@ -19,25 +18,34 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vuetify'],
   },
+  
+  // ✅ เพิ่ม routeRules สำหรับ headers
+  routeRules: {
+    '/Pdf/**': { 
+      headers: { 
+        'X-Frame-Options': 'SAMEORIGIN' 
+      } 
+    }
+  },
 
-  // ✅ เพิ่มตรงนี้
+  
+
   runtimeConfig: {
-    // ✅ ตัวแปรลับ (ใช้ได้เฉพาะฝั่ง server เท่านั้น)
     otpApiKey: process.env.OTP_API_KEY,
     otpSecretKey: process.env.OTP_SECRET_KEY,
     otpProjectKey: process.env.OTP_PROJECT_KEY,
     usernameLine: process.env.USERNAMELINE,
     passwordLine: process.env.PASSWORDLINE,
-
-    // ✅ ตัวแปร public สำหรับ client ใช้งาน เช่น base URL
+    
     public: {
       publicApiUrl: process.env.PUBLIC_API_URL
     }
   },
+  
   vite: {
     server: {
       allowedHosts: [
-        '73d2e71a16b0.ngrok-free.app' // ใส่ host ของ ngrok ที่คุณได้มา
+        '421fd2bb7e99.ngrok-free.app'
       ]
     }
   }
