@@ -47,6 +47,9 @@ const openPdfWithLiff = async () => {
 const pdfImages = [
   '/Pdf/PDPA_MDKKU_page-0001.jpg',
   '/Pdf/PDPA_MDKKU_page-0002.jpg',
+  '/Pdf/PDPA_MDKKU_page-0003.jpg',
+  '/Pdf/PDPA_MDKKU_page-0004.jpg',
+  '/Pdf/PDPA_MDKKU_page-0005.jpg',
 ]
 </script>
 

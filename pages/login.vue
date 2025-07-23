@@ -97,7 +97,7 @@
               <v-dialog v-model="agreementDialog" max-width="500">
                 <v-card>
                   <v-card-title class="text-h6">ยืนยันข้อตกลง</v-card-title>
-                  <v-card-text>
+                  <v-card-text class="pb-0">
                     <p>โปรดอ่านและยอมรับข้อตกลงในการใช้งานก่อนดำเนินการต่อ</p>
                     <PdfViewer source="/Pdf/PDPA_MDKKU.pdf" />
                     <v-checkbox
